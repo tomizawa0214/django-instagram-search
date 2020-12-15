@@ -119,18 +119,8 @@
     color: #fff;
 }
 
-.profile_picture {
+.profile {
     width: 200px;
-}
-
-.media_image {
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 100%;
-}
-
-.media_image img {
-    position: absolute;
 }
 
 .search-table {

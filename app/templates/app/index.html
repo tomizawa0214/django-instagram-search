@@ -2,6 +2,40 @@
 
 {% block content %}
 
-<h1>テスト</h1>
+<h4 class="mb-3">アカウント検索結果</h4>
+
+<p>キーワード：「<span class="font-weight-bold text-danger">{{ keyword }}</span>」</p>
+<p><span class="font-weight-bold text-danger">{{ media_count }}</span> 投稿以下</p>
+<p><span class="font-weight-bold text-danger">{{ followers_count }}</span> フォロワー以上</p>
+{% if this_year %}
+<p>今年中のアカウント</p>
+{% endif %}
+
+{% for index, row in user_data.iterrows %}
+<div class="card mb-2">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <div class="mr-3 profile">
+                <a class="d-flex flex-column justify-content-center align-items-center" href="{{ row.link }}" target="_blank">
+                    <img class="rounded-circle" src="{{ row.profile_picture_url }}" alt="" width="70">
+                    <div class="font-weight-bold">{{ row.username }}</div>
+                </a>
+            </div>
+            <div class="mr-3 text-center">
+                <h4>{{ row.media_count }}</h4>
+                <div class="text-secondary">投稿</div>
+            </div>
+            <div class="mr-3 text-center">
+                <h4>{{ row.followers_count }}</h4>
+                <div class="text-secondary">フォロワー</div>
+            </div>
+            <div class="text-center">
+                <h4>{{ row.follows_count }}</h4>
+                <div class="text-secondary">フォロー中</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock %}

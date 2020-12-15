@@ -119,3 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import environ
+import os
+
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR,'.env'))
+
+ACCESS_TOKEN = env('ACCESS_TOKEN')
+INSTAGRAM_ACCOUNT_ID = env('INSTAGRAM_ACCOUNT_ID')
